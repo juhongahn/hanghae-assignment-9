@@ -175,10 +175,6 @@ section.country-bar {
     background-color: #f2f2f2;
 }
 
-section.country-bar.hidden {
-    display: none;
-}
-
 section.best-sellers {
     padding-top: 80px;
 }
