@@ -65,12 +65,35 @@ function displayProducts(products) {
 
 }
 
+window.onload = () => {
+    let status = 'idle';
+
+    let productSection = document.querySelector('#all-products');
 
 
-loadProducts();
+    window.onscroll = () => {
+        let position = productSection.getBoundingClientRect().top - (window.scrollY + window.innerHeight);
 
-// Simulate heavy operation. It could be a complex price calculation.
-for (let i = 0; i < 10000000; i++) {
-    const temp = Math.sqrt(i) * Math.sqrt(i);
+        if (status == 'idle' && position <= 0) {
+            loadProducts();
+
+            // Simulate heavy operation. It could be a complex price calculation. <-- need to improve this
+            // This is a blocking operation that will freeze the UI
+            // how to improve this: https://ko.javascript.info/event-loop <-- use event loop
+            performTask()
+        }
+    }
 }
 
+let i = 0;
+
+function performTask() {
+  do {
+    const temp = Math.sqrt(i) * Math.sqrt(i);
+    i++;
+  } while (i % 1e6 !== 0 && i < 1e7);  
+
+  if (i < 1e7) {
+    setTimeout(performTask);  
+  }
+}
