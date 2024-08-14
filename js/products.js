@@ -77,9 +77,6 @@ window.onload = () => {
         if (status == 'idle' && position <= 0) {
             loadProducts();
 
-            // Simulate heavy operation. It could be a complex price calculation. <-- need to improve this
-            // This is a blocking operation that will freeze the UI
-            // how to improve this: https://ko.javascript.info/event-loop <-- use event loop
             performTask()
         }
     }
