@@ -56,7 +56,7 @@
 loadProducts()는 페이지 첫 로딩에는 필요 없고 해당 element가 뷰포트에 들어올 때 가져오면 LCP 등에 유리하다. 따라서 스크롤을 내려 해당 element가 뷰포트에 들어올 때 로드하도록 getBoundingClientRect()를 사용한다.
 
 
-또는 Intersection Observer API를 사용해서 특정 element가 Intersecting 할 때 불러와도 괘찮아 보인다.
+또는 Intersection Observer API를 사용해서 특정 element가 Intersecting 할 때 불러와도 괜찮아 보인다.
 
 ```
 window.onload = () => {
